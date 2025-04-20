@@ -1,0 +1,35 @@
+// https://leetcode.com/problems/rabbits-in-forest/?envType=daily-question&envId=2025-04-20
+
+#include <bits/stdc++.h>
+using namespace std ;
+
+auto init = []() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    return 'c';
+}();
+
+class Solution {
+public:
+    int numRabbits(vector<int>& answers) {
+        unordered_map<int, int> freq;
+        for (int a : answers) {
+            freq[a]++;
+        }
+
+        int count = 0;
+        for (auto& [k, v] : freq) {
+            int groupSize = k + 1;
+            int groups = (v + k) / groupSize;
+            count += groups * groupSize;
+        }
+
+        return count;
+    }
+};
+
+int main () {
+    
+    return 0;
+}
